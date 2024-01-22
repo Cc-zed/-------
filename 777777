@@ -1,0 +1,44 @@
+# try:
+#     try:
+#         fileObj = open("test.txt", "w+")
+#         if fileObj:
+#             print("file opened succsesfully")
+#             fileObj.write("Hello World to all of you")
+#             fileObj.write("\nOne more time")
+#     finally:
+#         fileObj.close()
+# except Exception as e:
+#     print("Error in opening file", e)
+
+# try:
+#     try:
+#         fileObj = open("test.txt", "r")
+#         if fileObj:
+#             print("File opened succsesfully")
+#             textFile = fileObj.readlines()
+#             for i in textFile:
+#                 print(i)
+
+#     finally:
+#         fileObj.close()
+# except Exception as e:
+#     print("Error in opening file", e)
+
+with open("test.txt", "r+") as file:
+    listofWords = file.read().split(" ")
+    newList = []
+    for i in listofWords:
+        if len(i) >=7:
+            newList.append(i)
+            newList.append(" ")
+            with open("text1.txt", "w+") as file1:
+                file1.writelines(newList)
+with open("text1.txt","r+") as file1:
+    print(file1.read())
+
+
+# with open("test2.txt","w+") as file:
+#     file.write(test.txt)
+    
+
+
